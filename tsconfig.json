@@ -3,16 +3,15 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "module": "CommonJS", // If CommonJS, webpack won't be able to tree-shake
+    "module": "ES2020", // If CommonJS, webpack won't be able to tree-shake
+    "moduleResolution": "node",
     "outDir": "./dist",
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": true,
     "target": "ES5",
-    "strict": true,
+    "strict": true
   },
-  "include": [
-    "src/**/*",
-  ]
+  "include": ["src/**/*"]
 }

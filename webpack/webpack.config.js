@@ -1,13 +1,37 @@
-const { merge } = require("webpack-merge");
+const path = require('path');
 
-const commonConfig = require("./webpack.common.js");
+const rules = require('./parts/loaders');
+const plugins = require('./parts/plugins');
 
 module.exports = (envVars) => {
   const { env } = envVars;
+  const isProd = env === 'production';
+  const isDev = env === 'development';
 
-  const envConfig = require(`./webpack.${env}.js`);
-
-  const config = merge(envConfig, commonConfig);
-
-  return config;
-}
+  return {
+    mode: env,
+    entry: {
+      main: './src/index.tsx',
+    },
+    output: {
+      clean: true,
+      filename: isDev ? '[name].js' : '[name].[contenthash].js',
+      path: path.resolve(__dirname, '..', 'dist'),
+      assetModuleFilename: 'images/[hash][ext][query]',
+    },
+    devServer: {
+      static: 'dist',
+      hot: true,
+      open: true,
+    },
+    devtool: isProd ? 'source-map' : 'cheap-module-source-map',
+    target: isProd ? 'browserslist' : 'web',
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    },
+    module: {
+      rules,
+    },
+    plugins: plugins(isDev),
+  };
+};
