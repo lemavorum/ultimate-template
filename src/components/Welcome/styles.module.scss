@@ -1,0 +1,9 @@
+.welcome {
+  text-align: center;
+  transform: skew(-12deg) rotate(-12deg);
+  grid-area: text;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 7vmin;
+  color: #1d9099;
+  text-shadow: -0.3vmin -0.2vmin 0 #5f3560, -0.4vmin -0.4vmin 0 #000000;
+}
