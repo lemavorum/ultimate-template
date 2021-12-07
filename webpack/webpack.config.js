@@ -28,6 +28,10 @@ module.exports = (envVars) => {
     target: isProd ? 'browserslist' : 'web',
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx'],
+      alias: {
+        '@components': path.resolve('./src/components'),
+        '@assets': path.resolve('./src/assets'),
+      },
     },
     module: {
       rules,

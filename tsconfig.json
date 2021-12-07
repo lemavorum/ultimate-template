@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "react",
@@ -11,7 +12,16 @@
     "removeComments": true,
     "sourceMap": true,
     "target": "ES5",
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@components/*": ["components/*"],
+      "@assets/*": ["assets/*"]
+      // "@logic/*": ["logic/*"],
+      // "@processes/*": ["processes/*"],
+    },
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

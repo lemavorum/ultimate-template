@@ -7,3 +7,12 @@
   color: #1d9099;
   text-shadow: -0.3vmin -0.2vmin 0 #5f3560, -0.4vmin -0.4vmin 0 #000000;
 }
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
